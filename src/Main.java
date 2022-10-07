@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class Main {
@@ -65,9 +66,8 @@ public class Main {
             if (fileTemp.createNewFile())
                 log.append("Создан файл temp в каталоге C://Games/temp\n");
 
-            try (FileOutputStream fos = new FileOutputStream(fileTemp.getAbsoluteFile())) {
-                byte[] logBytes = log.toString().getBytes();
-                fos.write(logBytes);
+            try (FileWriter writer = new FileWriter(fileTemp)) {
+                writer.write(log.toString());
             } catch (IOException e){
                 System.out.println(e.getMessage());
             }
