@@ -68,7 +68,6 @@ public class Main {
 
             try (FileWriter writer = new FileWriter(fileTemp)) {
                 writer.write(log.toString());
-                writer.flush();
             } catch (IOException e){
                 System.out.println(e.getMessage());
             }
